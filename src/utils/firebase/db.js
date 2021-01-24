@@ -2,12 +2,7 @@ import { db } from './config';
 
 // Create
 export const createNote = (title, content) => {
-  const id = db
-    .ref()
-    .child('notes')
-    .push().key;
-
-  return db.ref('notes').push({ id, title, content });
+  db.ref('notes').set({ title, content });
 };
 
 // Read

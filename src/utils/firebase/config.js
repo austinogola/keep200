@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import 'firebase/firestore';
+import 'firebase/database';
 
 //import firestore from 'firebase/firestore';
 
@@ -23,5 +23,6 @@ if (!firebase.apps.length) {
 }
 
 const db = firebase.database();
+// db.settings({timestampsInSnapshots:true})
 
 export { db };

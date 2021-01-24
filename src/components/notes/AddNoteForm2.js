@@ -24,15 +24,17 @@ function AddNoteForm({ /* addNote */ }) {
     // submit form
     
     const handleSubmit = e => {
-      
-    e.preventDefault()
+      e.preventDefault()
         
-        if(title || content) {
-            db.createNote(title.trim(), content.trim())
-            setTitle('')
-            setContent('')
-            setTitleFieldVisible('false')
-        } 
+    if(title || content) {
+        db.collection('notes').add({title:title,content:content})
+        // add offline
+        //addNote(title, content)
+        // reset all states
+        setTitle('')
+        setContent('')
+        setTitleFieldVisible('false')
+    } 
     } // end of handleSubmit
 
     return (
